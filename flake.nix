@@ -87,6 +87,9 @@
         in
           devShells."main"
           // devShells;
+        cosmic = pkgs.callPackage ./dev/cosmic.nix {
+          inherit (lowrisc_pkgs) ncurses5-fhs ncurses6-fhs lowrisc-toolchain-gcc-rv32imcb lowrisc-toolchain-gcc-rv64imac;
+        };
         cheriot = pkgs.mkShell {
           name = "cheriot";
           packages =
